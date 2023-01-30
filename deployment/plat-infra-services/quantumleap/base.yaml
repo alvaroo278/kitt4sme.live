@@ -43,7 +43,7 @@ spec:
           # - https://github.com/orchestracities/ngsi-timeseries-api/issues/448
           # So for now we're using an old image, but when the bug gets fixed in
           # QL, we should switch to the latest.
-          image: "smartsdk/quantumleap-pg-init:0.7.6"
+          image: "quay.io/fiware/quantumleap:0.9.0-PRE"
           imagePullPolicy: IfNotPresent
           env:
           - name: PG_HOST
@@ -64,7 +64,7 @@ spec:
           - name: db-init
             mountPath: /db-init
       containers:
-        - image: "orchestracities/quantumleap:0.8.3"
+        - image: "quay.io/fiware/quantumleap:0.9.0-PRE"
           imagePullPolicy: IfNotPresent
           name: quantumleap
           ports:
