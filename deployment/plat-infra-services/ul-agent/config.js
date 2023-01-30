@@ -68,7 +68,7 @@ config.iota = {
     contextBroker: {
         host: 'orion',
         port: '1026',
-        ngsiVersion: 'v2',
+        ngsiVersion: 'v1',
         fallbackTenant: 'kitt4sme',
         fallbackPath: '/'
     },
