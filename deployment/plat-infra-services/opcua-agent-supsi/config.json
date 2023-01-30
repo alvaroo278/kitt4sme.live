@@ -5,7 +5,7 @@
 	"contextBroker": {
 		"host": "orion",
 		"port": 1026,
-		"ngsiVersion": "v2",
+		"ngsiVersion": "v1",
 		"jsonLdContext": "",
 		"service": "supsi",
 		"subservice": "/"
