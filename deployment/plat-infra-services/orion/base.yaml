@@ -30,10 +30,11 @@ spec:
         app: orion
     spec:
       containers:
-      - name: orionld-container
-        image: fiware/orion-ld:1.0.1
+      - name: orion
+        image: "fiware/orion-ld:1.0.1"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 1026
-      env:
-      - name: ORIONLD_MONGO_HOST
-        value: mongodb
+        env:
+        - name: ORIONLD_MONGO_HOST
+          value: "mongodb"
