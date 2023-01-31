@@ -32,12 +32,23 @@ spec:
         app: orion
     spec:
       containers:
+      - name: fiware-orion
       - command: ["orionld"]
-        args: ["-fg", "-multiservice", "-ngsiv1Autocast", "-dbhost", "mongodb",
-               "-logLevel", "DEBUG"]
+        #args: ["-fg", "-multiservice", "-ngsiv1Autocast", "-dbhost", "mongodb",
+        #       "-logLevel", "DEBUG"]
         image: "fiware/orion-ld:1.0.1"
-        imagePullPolicy: IfNotPresent
+        #imagePullPolicy: IfNotPresent
         name: orion
         ports:
         - containerPort: 1026
           name: http
+        env:
+        - name: ORIONLD_MONGO_HOST
+          value: mongodb
+        - name: ORIONLD_LOG_LEVEL
+          value: DEBUG
+        - name: ORIONLD_TRACE
+          value: "true"
+        initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 5
