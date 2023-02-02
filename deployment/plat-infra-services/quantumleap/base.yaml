@@ -72,7 +72,6 @@ spec:
             - -n
             - -c
             - ./wq/supervisord.conf
-          name: quantumleap
           ports:
           - containerPort: 8668
             name: http
