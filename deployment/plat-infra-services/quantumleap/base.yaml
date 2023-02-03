@@ -64,14 +64,9 @@ spec:
           - name: db-init
             mountPath: /db-init
       containers:
-        - name: quantumleap
-          image: "orchestracities/quantumleap:edge"
+        - image: "orchestracities/quantumleap:edge"
           imagePullPolicy: IfNotPresent
-          command:
-            - supervisord
-            - -n
-            - -c
-            - ./wq/supervisord.conf
+          name: quantumleap          
           ports:
           - containerPort: 8668
             name: http
