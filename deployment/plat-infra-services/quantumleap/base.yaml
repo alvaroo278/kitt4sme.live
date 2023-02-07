@@ -27,7 +27,6 @@ metadata:
     secret.reloader.stakater.com/reload: "postgres-users"
 spec:
   replicas: 1
-  enabled: true
   selector:
     matchLabels:
       app: quantumleap
@@ -93,6 +92,8 @@ spec:
             value: "4200"
           - name: QL_CONFIG
             value: /config/db-routing.yaml
+          - name: DEBUG
+            value: "true"
           volumeMounts:
           - name: db-routing
             mountPath: /config
