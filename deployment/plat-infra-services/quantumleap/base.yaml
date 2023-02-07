@@ -36,7 +36,8 @@ spec:
         app: quantumleap
     spec:
       initContainers:
-        - name: quantumleap-pg-init
+          enabled: false
+          - name: quantumleap-pg-init
           # image: "orchestracities/quantumleap-pg-init:0.8.2"
           # TODO ^ this image is buggy. It'll always exit with a 64 code
           # even if the init procedure actually succeeded. See:
