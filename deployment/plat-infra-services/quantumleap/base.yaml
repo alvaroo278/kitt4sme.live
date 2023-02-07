@@ -27,6 +27,7 @@ metadata:
     secret.reloader.stakater.com/reload: "postgres-users"
 spec:
   replicas: 1
+  enabled: true
   selector:
     matchLabels:
       app: quantumleap
@@ -36,8 +37,7 @@ spec:
         app: quantumleap
     spec:
       initContainers:
-          enabled: false
-          - name: quantumleap-pg-init
+        - name: quantumleap-pg-init
           # image: "orchestracities/quantumleap-pg-init:0.8.2"
           # TODO ^ this image is buggy. It'll always exit with a 64 code
           # even if the init procedure actually succeeded. See:
