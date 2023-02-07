@@ -43,7 +43,7 @@ spec:
           # - https://github.com/orchestracities/ngsi-timeseries-api/issues/448
           # So for now we're using an old image, but when the bug gets fixed in
           # QL, we should switch to the latest.
-          image: "smartsdk/quantumleap-pg-init:0.8"
+          image: "smartsdk/quantumleap-pg-init:0.7.6"
           imagePullPolicy: IfNotPresent
           env:
           - name: PG_HOST
