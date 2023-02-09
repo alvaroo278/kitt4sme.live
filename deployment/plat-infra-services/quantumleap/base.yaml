@@ -64,13 +64,15 @@ spec:
           - name: db-init
             mountPath: /db-init
       containers:
-        - image: "orchestracities/quantumleap:0.8.3"
+        - image: "orchestracities/quantumleap"
           imagePullPolicy: IfNotPresent
           name: quantumleap          
           ports:
           - containerPort: 8668
             name: http
           env:
+          - name: QL_DEFAULT_DB
+            value: "timescale"
           - name: POSTGRES_HOST
             value: "postgres"
           - name: POSTGRES_PORT
