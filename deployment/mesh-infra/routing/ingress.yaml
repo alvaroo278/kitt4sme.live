@@ -128,8 +128,6 @@ spec:
    - match:  # NOTE (1)
     - uri:
         prefix: /grafana/
-    - uri:
-        prefix: /grafana
     rewrite:
       uri: /
     route:
