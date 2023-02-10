@@ -32,6 +32,7 @@ spec:
       labels:
         app: grafana
     spec:
+      hostNetwork: true
       containers:
         - image: grafana/grafana:6.1.6
           imagePullPolicy: IfNotPresent
