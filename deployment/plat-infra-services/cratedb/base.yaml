@@ -44,7 +44,7 @@ spec:
       # started, and they must terminate before the primary containers
       # are initialized. Here, we use one to set the correct memory
       # map limit.
-      hostNetwork: true
+#      hostNetwork: true
       initContainers:
       - name: init-sysctl
         image: busybox
