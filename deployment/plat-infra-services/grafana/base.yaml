@@ -41,10 +41,10 @@ spec:
           # Disable login so we can get straight in. At this stage we
           # don't care about security, we just want to make our life
           # easier as we develop the POC.
-          #- name: "GF_AUTH_ANONYMOUS_ENABLED"
-           # value: "true"
-          #- name: "GF_AUTH_ANONYMOUS_ORG_ROLE"
-           # value: "Admin"
+          - name: "GF_AUTH_ANONYMOUS_ENABLED"
+            value: "true"
+          - name: "GF_AUTH_ANONYMOUS_ORG_ROLE"
+            value: "Admin"
           - name: "GF_AUTH_BASIC_ENABLED"
             value: "true"
           - name: "GF_SECURITY_ADMIN_PASSWORD"
