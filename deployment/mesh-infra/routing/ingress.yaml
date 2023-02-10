@@ -27,6 +27,8 @@ spec:
   http:
   - match:  # NOTE (4)
     - uri:
+        prefix: /grafana/
+    - uri:
         prefix: /grafana
     route:
     - destination:
