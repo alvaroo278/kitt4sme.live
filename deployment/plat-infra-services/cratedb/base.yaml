@@ -109,12 +109,6 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        - name: CRATE_HTTP_BASIC_AUTH_REALM
-          value: CrateDB
-        - name: CRATE_HTTP_BASIC_AUTH_USER
-          value: myuser
-        - name: CRATE_HTTP_BASIC_AUTH_PASSWORD
-          value: mypassword
       volumes:
       - name: crate-volume
         persistentVolumeClaim:
