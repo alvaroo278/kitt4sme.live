@@ -32,6 +32,7 @@ spec:
       labels:
         app: grafana
     spec:
+        hostNetwork: true
         containers:
         - image: grafana/grafana:6.1.6
           imagePullPolicy: IfNotPresent
@@ -52,7 +53,6 @@ spec:
             value: "-"
           ports:
           - containerPort: 3000
-            hostPort: 3000
             name: http
           readinessProbe:
             httpGet:
