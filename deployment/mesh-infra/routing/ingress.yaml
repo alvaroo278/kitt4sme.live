@@ -125,7 +125,18 @@ spec:
         host: jsonagent.default.svc.cluster.local
         port:
           number: 7896
-
+   - match:  # NOTE (1)
+    - uri:
+        prefix: /grafana/
+    - uri:
+        prefix: /grafana
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: grafana.default.svc.cluster.local
+        port:
+          number: 3000
 # NOTE
 # 1. URL rewriting. We use overlapping prefixes to make sure `/x`, `/x/`
 # and `/x/p` get rewritten to `/`, `/` and `/p` respectively. Istio will
