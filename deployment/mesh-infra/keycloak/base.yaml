@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: keycloak
-        image: quay.io/keycloak/keycloak:16.1.0
+        image: jboss/keycloak
         env:
         - name: PROXY_ADDRESS_FORWARDING
           value: "true"
@@ -44,10 +44,10 @@ spec:
         # var will have no effect---you'll have to log onto Keycloak to
         # change it. This is why we're not asking Reloader to monitor
         # changes to this pod's linked secret.
-        - name: KEYCLOAK_ADMIN
-          value: admin
-        - name: KEYCLOAK_ADMIN_PASSWORD
-          value: admin
+         - name: KEYCLOAK_USER
+           value: admin
+         - name: KEYCLOAK_PASSWORD
+           value: admin123
         - name: DB_VENDOR
           value: "h2"
         ports:
