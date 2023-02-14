@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: keycloak
-        image: quay.io/keycloak/keycloak:20.0
+        image: quay.io/keycloak/keycloak:17.0.0
         env:
         - name: PROXY_ADDRESS_FORWARDING
           value: "true"
@@ -44,6 +44,16 @@ spec:
         # var will have no effect---you'll have to log onto Keycloak to
         # change it. This is why we're not asking Reloader to monitor
         # changes to this pod's linked secret.
+        - name: KEYCLOAK_USER
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-builtin-admin
+              key: username
+        - name: KEYCLOAK_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-builtin-admin
+              key: password        
         - name: DB_VENDOR
           value: "h2"
         ports:
