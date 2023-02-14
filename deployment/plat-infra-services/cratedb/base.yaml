@@ -75,9 +75,7 @@ spec:
         volumeMounts:
           # Mount persistent storage on configured data dir (path.data).
           - mountPath: /data
-            name: crate-volume
-          - name: config
-            mountPath: /crate/config/crate.yml            
+            name: crate-volume           
         resources:
           limits:
             # How much memory each pod gets.
@@ -116,6 +114,3 @@ spec:
         persistentVolumeClaim:
           claimName: crate-pvc
             - name: config
-      - name: config
-        configMap:
-          name: crate-config
