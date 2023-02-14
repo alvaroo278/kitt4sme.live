@@ -27,10 +27,6 @@ apiVersion: "apps/v1"
 metadata:
   # This is the name used as a prefix for all pods in the set.
   name: crate
-  annotations:
-    # Tell Reloader to bounce the Argo CD server whenever the SSO config
-    # and built-in admin credentials change.
-    secret.reloader.stakater.com/reload: "crate-users"
 spec:
   serviceName: "crate-set"
   # Our cluster has three nodes.
