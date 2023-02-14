@@ -45,9 +45,15 @@ spec:
         # change it. This is why we're not asking Reloader to monitor
         # changes to this pod's linked secret.
          - name: KEYCLOAK_USER
-           value: admin
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-builtin-admin
+              key: username
          - name: KEYCLOAK_PASSWORD
-           value: admin123
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-builtin-admin
+              key: password
         - name: DB_VENDOR
           value: "h2"
         ports:
