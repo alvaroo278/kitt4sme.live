@@ -1,0 +1,35 @@
+# Crate Configuration
+
+network.host: local,site
+
+# Paths
+path:
+  logs: /data/log
+  data: /data/data
+blobs:
+  path: /data/blobs
+
+auth:
+  trust:
+    http_default_user: crate # default Basic Auth unspecified
+  host_based:
+    enabled: true # true (secure) false (insecure)
+    config:
+      0:
+        user: crate
+        address: local
+        protocol: http
+        method: trust # deja pasar sin contraseña
+      98:
+        protocol: http
+        method: password # solicita contraseña
+        ssl: off # no requiere ssl 4200
+      99:
+        protocol: pg
+        method: password # solicita contraseña
+        ssl: off # no requiere ssl 5432
+ssl:
+  psql:
+    enabled: false
+  http:
+    enabled: false
