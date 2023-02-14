@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crate-config
+data:
+  archivo.yml: |
+    network.host: local,site
+    path:
+      logs: /data/log
+      data: /data/data
+      blobs:
+        path: /data/blobs
+    auth:
+      trust:
+        http_default_user: crate
+      host_based:
+        enabled: true
+        config:
+          0:
+            user: crate
+            address: local
+            protocol: http
+            method: trust
+          98:
+            protocol: http
+            method: password
+            ssl: off
+          99:
+            protocol: pg
+            method: password
+            ssl: off
+    ssl:
+      psql:
+        enabled: false
+      http:
+        enabled: false
