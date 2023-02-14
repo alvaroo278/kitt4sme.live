@@ -119,6 +119,3 @@ spec:
       - name: config
         configMap:
           name: crate-config
-          items:
-          - key: crate-config.yml
-            path: crate.yml
