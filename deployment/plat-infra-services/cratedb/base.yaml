@@ -120,5 +120,5 @@ spec:
         configMap:
           name: crate-config
           items:
-          - key: crate.yml
+          - key: crate-config.yml
             path: crate.yml
