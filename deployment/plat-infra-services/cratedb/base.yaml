@@ -44,7 +44,6 @@ spec:
       # started, and they must terminate before the primary containers
       # are initialized. Here, we use one to set the correct memory
       # map limit.
-#      hostNetwork: true
       initContainers:
       - name: init-sysctl
         image: busybox
@@ -75,7 +74,7 @@ spec:
         volumeMounts:
           # Mount persistent storage on configured data dir (path.data).
           - mountPath: /data
-            name: crate-volume           
+            name: crate-volume
         resources:
           limits:
             # How much memory each pod gets.
@@ -113,4 +112,3 @@ spec:
       - name: crate-volume
         persistentVolumeClaim:
           claimName: crate-pvc
-            - name: config
