@@ -25,9 +25,11 @@ spec:
   hosts:
   - "*"
   http:
-    - match:
+  - match:
     - uri:
         prefix: /grafana
+    rewrite:
+      uri: /
     route:
     - destination:
         host: grafana.default.svc.cluster.local
