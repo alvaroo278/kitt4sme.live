@@ -53,14 +53,12 @@ spec:
             value: "admin"
           - name: "GF_SERVER_DOMAIN"
             value: "192.168.1.18" # New line added            
-          args:
-            - "--http.path=/grafana"
           ports:
           - containerPort: 3000
             name: http
           readinessProbe:
             httpGet:
-              path: /grafana/api/health
+              path: /api/health
               port: http
           resources:
             limits:
@@ -71,8 +69,4 @@ spec:
               memory: 100Mi
         volumeMounts:
           - name: config-volume
-            mountPath: /etc/grafana
-      volumes:
-        - name: config-volume
-          configMap:
-            name: grafana-config              
+            mountPath: /etc/grafana             
