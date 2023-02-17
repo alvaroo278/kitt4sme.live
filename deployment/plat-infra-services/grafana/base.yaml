@@ -51,12 +51,14 @@ spec:
             value: "admin"
           - name: "GF_SECURITY_ADMIN_USER"
             value: "admin"
+          args:
+            - "--http.path=/grafana"
           ports:
           - containerPort: 3000
             name: http
           readinessProbe:
             httpGet:
-              path: /api/health
+              path: /grafana/api/health
               port: http
           resources:
             limits:
