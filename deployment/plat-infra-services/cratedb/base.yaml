@@ -91,6 +91,8 @@ spec:
           name: postgres
         # Environment variables passed through to the container.
         env:
+        - name: PROXY_ADDRESS_FORWARDING
+          value: "true"
           # This is variable is detected by CrateDB.
         - name: CRATE_HEAP_SIZE
           value: "256m"
