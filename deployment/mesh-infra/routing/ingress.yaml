@@ -37,9 +37,9 @@ spec:
           number: 3000
   - match:  # NOTE (4)
     - uri:
-        prefix: /crate/
+        prefix: /#!/
     - uri:
-        prefix: /crate
+        prefix: /#!
     route:
     - destination:
         host: crate.default.svc.cluster.local
