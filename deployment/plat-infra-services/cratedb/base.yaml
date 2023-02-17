@@ -114,23 +114,3 @@ spec:
       - name: crate-volume
         persistentVolumeClaim:
           claimName: crate-pvc
-
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: crate
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - host: <hostname>
-    http:
-      paths:
-      - path: /crate
-        pathType: Prefix
-        backend:
-          service:
-            name: crate
-            port:
-              name: crate-web
