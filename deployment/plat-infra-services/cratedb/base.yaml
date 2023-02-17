@@ -116,17 +116,18 @@ spec:
           claimName: crate-pvc
 
 
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: crate-ingress
+  name: crate
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: localhost
+  - host: <hostname>
     http:
       paths:
-      - path: /crate(/|$)(.*)
+      - path: /crate
         pathType: Prefix
         backend:
           service:
