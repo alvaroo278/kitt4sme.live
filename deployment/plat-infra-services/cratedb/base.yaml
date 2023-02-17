@@ -116,8 +116,6 @@ spec:
           claimName: crate-pvc
 
 
-
-apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: crate-ingress
