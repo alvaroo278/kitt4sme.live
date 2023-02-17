@@ -21,26 +21,6 @@ spec:
     app: crate
 
 ---
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: crate-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-spec:
-  rules:
-  - host: localhost
-    http:
-      paths:
-      - path: /crate(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: crate
-            port:
-              name: crate-web
-
 ---
 kind: StatefulSet
 apiVersion: "apps/v1"
@@ -134,3 +114,24 @@ spec:
       - name: crate-volume
         persistentVolumeClaim:
           claimName: crate-pvc
+
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: crate-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /crate(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: crate
+            port:
+              name: crate-web
