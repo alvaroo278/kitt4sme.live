@@ -27,12 +27,12 @@ spec:
   http:
     - match:
     - uri:
-        prefix: /crate
+        prefix: /grafana
     rewrite:
-      uri: /#!
+      uri: /
     route:
     - destination:
-        host: crate.default.svc.cluster.local
+        host: grafana.default.svc.cluster.local
         port:
           number: 3000
   - match:  # NOTE (1)
