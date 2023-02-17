@@ -28,6 +28,8 @@ spec:
   - match:
     - uri:
         prefix: /grafana
+    rewrite:
+      uri: /?orgId=1
     route:
     - destination:
         host: grafana.default.svc.cluster.local
