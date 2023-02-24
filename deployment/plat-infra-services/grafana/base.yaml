@@ -51,6 +51,8 @@ spec:
             value: "admin"
           - name: "GF_SECURITY_ADMIN_USER"
             value: "admin"
+          - name: "BASH_PATH"
+            value: "/grafana"
           ports:
           - containerPort: 3000
             name: http
