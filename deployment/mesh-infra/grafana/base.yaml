@@ -37,8 +37,6 @@ data:
     logs = /var/log/grafana
     plugins = /var/lib/grafana/plugins
     provisioning = /etc/grafana/provisioning
-    [server]
-    domain = 192.168.1.18
 
   datasources.yaml: |
     apiVersion: 1
