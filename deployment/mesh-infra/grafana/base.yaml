@@ -134,6 +134,7 @@ spec:
       containers:
         - name: grafana
           image: "grafana/grafana:7.5.5"
+          command: ["/bin/bash", "grafana-cli plugins install carpetplot-panel --pluginUrl https://github.com/alvaroo278/kitt4sme.live/raw/main/deployment/plat-infra-services/grafana/plugins/carpetplot-panel-1.0.1.zip"]
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: config
