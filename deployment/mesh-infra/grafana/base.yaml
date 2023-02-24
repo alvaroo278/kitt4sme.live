@@ -94,18 +94,18 @@ spec:
 
 ---
 
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: grafana-data
-spec:
-  storageClassName: standard
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /mnt/data/grafana
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: grafana-data
+#spec:
+ # storageClassName: standard
+ # capacity:
+  #  storage: 10Gi
+  #accessModes:
+  #  - ReadWriteOnce
+  #hostPath:
+  #  path: /mnt/data/grafana
 
 ---
 # Source: grafana/templates/deployment.yaml
@@ -222,8 +222,8 @@ spec:
           configMap:
             name: istio-services-grafana-dashboards
         - name: grafana-data
-          persistentVolumeClaim:
-            claimName: grafana-data
+          hostPath:
+            path: "/mnt/data/grafana"
 
 
 
