@@ -155,7 +155,7 @@ spec:
             - name: config
               mountPath: "/etc/grafana/grafana.ini"
               subPath: grafana.ini
-            - name: grafana-data
+            - name: grafana-plugins
               mountPath: "/var/lib/grafana/plugins"
             - name: dashboards-istio
               mountPath: "/var/lib/grafana/dashboards/istio"
