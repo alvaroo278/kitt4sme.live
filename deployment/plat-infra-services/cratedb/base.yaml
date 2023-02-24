@@ -85,6 +85,7 @@ spec:
           name: crate-internal
           # Port 4200 for HTTP clients.
         - containerPort: 4200
+          hostPort: 4200
           name: crate-web
           # Port 5432 for PostgreSQL wire protocol clients.
         - containerPort: 5432
