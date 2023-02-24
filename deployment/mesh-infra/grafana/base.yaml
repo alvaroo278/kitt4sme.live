@@ -210,7 +210,7 @@ spec:
               path: /api/health
               port: 3000
           resources:
-            memory: 512Mi
+            {}
       volumes:
         - name: config
           configMap:
