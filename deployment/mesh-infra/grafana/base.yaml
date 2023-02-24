@@ -95,7 +95,7 @@ spec:
 ---
 
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
   name: grafana-data
 spec:
@@ -222,7 +222,7 @@ spec:
           configMap:
             name: istio-services-grafana-dashboards
         - name: grafana-data
-          persistentVolume:
+          persistentVolumeClaim:
             claimName: grafana-data
 
 
