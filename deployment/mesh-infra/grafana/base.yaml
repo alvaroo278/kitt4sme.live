@@ -180,7 +180,7 @@ spec:
               value: "-"
             - name: "PROXY_ADDRESS_FORWARDING"
               value: "true"
-            - name: "GF_INSTALL_PLUGINS"
+            - name: GF_INSTALL_PLUGINS
               value: "https://github.com/alvaroo278/kitt4sme.live/raw/main/deployment/plat-infra-services/grafana/plugins/carpetplot-panel-1.0.1.zip;carpetplot-panel"
           livenessProbe:
             failureThreshold: 10
