@@ -156,7 +156,7 @@ spec:
               mountPath: "/etc/grafana/grafana.ini"
               subPath: grafana.ini
             - name: grafana-data
-              mountPath: "/var/lib/grafana"
+              mountPath: "/var/lib/grafana/plugins"
             - name: dashboards-istio
               mountPath: "/var/lib/grafana/dashboards/istio"
             - name: dashboards-istio-services
@@ -221,7 +221,7 @@ spec:
         - name: dashboards-istio-services
           configMap:
             name: istio-services-grafana-dashboards
-        - name: grafana-data
+        - name: grafana-plugins
           hostPath:
             path: "/mnt/data/grafana"
 
