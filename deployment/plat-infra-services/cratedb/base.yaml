@@ -81,14 +81,14 @@ spec:
             memory: 512Mi
         ports:
           # Port 4300 for inter-node communication.
-          - containerPort: 4300
-            name: crate-internal
+        - containerPort: 4300
+          name: crate-internal
           # Port 4200 for HTTP clients.
-          - containerPort: 4200
-            name: crate-web
+        - containerPort: 4200
+          name: crate-web
           # Port 5432 for PostgreSQL wire protocol clients.
-          - containerPort: 5432
-            name: postgres
+        - containerPort: 5432
+          name: postgres
 
         # Environment variables passed through to the container.
         env:
