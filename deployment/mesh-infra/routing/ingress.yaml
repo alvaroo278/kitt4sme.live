@@ -39,7 +39,7 @@ spec:
     - uri:
         prefix: /crate
     rewrite:
-      uri: /
+      uri: /#!
     route:
     - destination:
         host: crate.default.svc.cluster.local
