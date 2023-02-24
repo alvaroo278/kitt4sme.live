@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
 - cratedb/
-- grafana/
+#- grafana/
 - json-agent/
 - mongodb/
 - opcua-agent-supsi/
