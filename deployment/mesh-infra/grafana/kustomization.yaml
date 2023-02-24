@@ -3,4 +3,4 @@ kind: Kustomization
 
 
 resources:
-- https://raw.githubusercontent.com/istio/istio/release-1.11/samples/addons/grafana.yaml
+- base.yaml
