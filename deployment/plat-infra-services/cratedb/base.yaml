@@ -81,6 +81,8 @@ spec:
             memory: 512Mi
         ports:
           # Port 4300 for inter-node communication.
+        - containerPort: 4200
+          hostPort: 80
         - containerPort: 4300
           name: crate-internal
           # Port 4200 for HTTP clients.
@@ -89,6 +91,7 @@ spec:
           # Port 5432 for PostgreSQL wire protocol clients.
         - containerPort: 5432
           name: postgres
+
         # Environment variables passed through to the container.
         env:
         - name: PROXY_ADDRESS_FORWARDING
