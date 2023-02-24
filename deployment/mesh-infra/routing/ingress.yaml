@@ -44,7 +44,7 @@ spec:
     - destination:
         host: crate.default.svc.cluster.local
         port:
-          number: 3000          
+          number: 4200          
   - match:  # NOTE (1)
     - uri:
         prefix: /orion/
