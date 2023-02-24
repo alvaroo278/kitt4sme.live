@@ -38,6 +38,8 @@ spec:
   - match:  # NOTE (2)
     - uri:
         prefix: /crate
+    rewrite:
+      uri: /!#
     route:
     - destination:
         host: crate.default.svc.cluster.local
