@@ -51,9 +51,9 @@ spec:
             value: "admin"
           - name: "GF_SECURITY_ADMIN_USER"
             value: "admin"
-          - name: BASH_PATH
+          - name: "BASH_PATH"
             value: "/grafana"
-          - name: PROXY_ADDRESS_FORWARDING
+          - name: "PROXY_ADDRESS_FORWARDING"
             value: "true"           
           ports:
           - containerPort: 3000
