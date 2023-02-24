@@ -134,13 +134,12 @@ spec:
       containers:
         - name: grafana
           image: "grafana/grafana:7.5.5"
-          command: ["/bin/bash", "grafana-cli plugins install carpetplot-panel --pluginUrl https://github.com/alvaroo278/kitt4sme.live/raw/main/deployment/plat-infra-services/grafana/plugins/carpetplot-panel-1.0.1.zip"]
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: config
               mountPath: "/etc/grafana/grafana.ini"
               subPath: grafana.ini
-            - name: storage
+            - name: grafana-data
               mountPath: "/var/lib/grafana"
             - name: dashboards-istio
               mountPath: "/var/lib/grafana/dashboards/istio"
@@ -181,8 +180,8 @@ spec:
               value: "-"
             - name: "PROXY_ADDRESS_FORWARDING"
               value: "true"
-            - name: GF_INSTALL_PLUGINS
-              value: "https://github.com/alvaroo278/kitt4sme.live/raw/main/deployment/plat-infra-services/grafana/plugins/carpetplot-panel-1.0.1.zip;carpetplot-panel"
+            #- name: GF_INSTALL_PLUGINS
+            #  value: "https://github.com/alvaroo278/kitt4sme.live/tree/main/deployment/mesh-infra/grafana/plugins/carpetplot-panel-1.0.1.zip;carpetplot-panel"
           livenessProbe:
             failureThreshold: 10
             httpGet:
@@ -207,8 +206,24 @@ spec:
         - name: dashboards-istio-services
           configMap:
             name: istio-services-grafana-dashboards
-        - name: storage
-          emptyDir: {}
+        - name: grafana-data
+          persistentVolumeClaim:
+            claimName: grafana-data
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: grafana-data
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /mnt/data/grafana
 
 ---
 
