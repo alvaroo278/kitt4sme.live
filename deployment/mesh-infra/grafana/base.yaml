@@ -52,6 +52,9 @@ spec:
             value: "-"
           - name: "GF_SECURITY_ADMIN_USER"
             value: "-"
+          volumeMounts:
+            - mountPath: /var/lib/grafana
+              name: grafana-volume
           ports:
           - containerPort: 3000
             name: http
@@ -66,3 +69,8 @@ spec:
             requests:
               cpu: 100m
               memory: 100Mi
+             
+      volumes:
+      - name: grafana-volume
+        persistentVolumeClaim:
+          claimName: grafana-data
