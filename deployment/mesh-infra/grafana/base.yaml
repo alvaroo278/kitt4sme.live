@@ -93,21 +93,6 @@ spec:
     app.kubernetes.io/instance: grafana
 
 ---
-
-#apiVersion: v1
-#kind: PersistentVolumeClaim
-#metadata:
-#  name: grafana-data
-#spec:
- # storageClassName: standard
- # capacity:
-  #  storage: 10Gi
-  #accessModes:
-  #  - ReadWriteOnce
-  #hostPath:
-  #  path: /mnt/data/grafana
-
----
 # Source: grafana/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -155,7 +140,7 @@ spec:
             - name: config
               mountPath: "/etc/grafana/grafana.ini"
               subPath: grafana.ini
-            - name: grafana-plugins
+            - name: grafana-volume
               mountPath: "/var/lib/grafana/plugins"
             - name: dashboards-istio
               mountPath: "/var/lib/grafana/dashboards/istio"
@@ -196,8 +181,6 @@ spec:
               value: "-"
             - name: "PROXY_ADDRESS_FORWARDING"
               value: "true"
-            #- name: GF_INSTALL_PLUGINS
-            #  value: "https://github.com/alvaroo278/kitt4sme.live/tree/main/deployment/mesh-infra/grafana/plugins/carpetplot-panel-1.0.1.zip;carpetplot-panel"
           livenessProbe:
             failureThreshold: 10
             httpGet:
@@ -212,6 +195,9 @@ spec:
           resources:
             {}
       volumes:
+        -name: grafana-volume
+         persistentVolumeClaim:
+           claimName: grafana-data
         - name: config
           configMap:
             name: grafana
@@ -221,11 +207,6 @@ spec:
         - name: dashboards-istio-services
           configMap:
             name: istio-services-grafana-dashboards
-        - name: grafana-plugins
-          hostPath:
-            path: "/mnt/data/grafana"
-
-
 
 ---
 
