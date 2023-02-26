@@ -141,7 +141,7 @@ spec:
               mountPath: "/etc/grafana/grafana.ini"
               subPath: grafana.ini
             - name: grafana-volume
-              mountPath: "/var/lib/grafana/plugins"
+              mountPath: "/var/lib/grafana/"
             - name: dashboards-istio
               mountPath: "/var/lib/grafana/dashboards/istio"
             - name: dashboards-istio-services
