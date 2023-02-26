@@ -7,8 +7,6 @@ data:
   [log]
   mode = console
   data = /var/lib/grafana
-  [plugins]
-  plugin_catalog_url = "https://github.com/alvaroo278/kitt4sme.live/tree/main/deployment/mesh-infra/grafana/plugins"
 
 
 apiVersion: v1
@@ -68,6 +66,8 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/grafana
               name: grafana-volume
+            - name: config
+              mountPath: "/etc/grafana/grafana.ini"              
           ports:
           - containerPort: 3000
             name: http
