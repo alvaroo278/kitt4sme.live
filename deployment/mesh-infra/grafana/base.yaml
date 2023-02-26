@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: ConfigMap
 metadata:
   name: grafana
@@ -10,7 +10,7 @@ data:
     data = /var/lib/grafana
 
 
-apiVersion: v1
+apiVersion: apps/v1
 kind: Service
 metadata:
   labels:
