@@ -4,9 +4,10 @@ metadata:
   name: grafana
 data:
   grafana.ini: |
-  [log]
-  mode = console
-  data = /var/lib/grafana
+    [log]
+    mode = console
+    [paths]
+    data = /var/lib/grafana
 
 
 apiVersion: v1
