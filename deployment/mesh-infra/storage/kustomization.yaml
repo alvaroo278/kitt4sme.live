@@ -7,3 +7,4 @@ resources:
 - mongo.yaml
 - mosquitto.yaml
 - postgres.yaml
+- grafana.yaml
