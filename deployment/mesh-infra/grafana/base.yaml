@@ -1,4 +1,14 @@
-
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana
+data:
+  grafana.ini: |
+  [log]
+  mode = console
+  data = /var/lib/grafana
+  [plugins]
+  plugin_catalog_url = "https://github.com/alvaroo278/kitt4sme.live/tree/main/deployment/mesh-infra/grafana/plugins"
 
 
 apiVersion: v1
@@ -77,3 +87,6 @@ spec:
       - name: grafana-volume
         persistentVolumeClaim:
           claimName: grafana-data
+      - name: config
+        configMap:
+          name: grafana          
