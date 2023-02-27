@@ -55,7 +55,7 @@ spec:
           - name: "GF_INSTALL_PLUGINS"
             value: "natel-discrete-panel,https://hopu.eu/wp-content/grafana/smart-spot-worldmap-panel-v0.4.1.zip;smart-spot-worldmap-panel"
           volumeMounts:
-            - mountPath: /
+            - mountPath: /var/lib/grafana
               name: grafana-volume            
           ports:
           - containerPort: 3000
