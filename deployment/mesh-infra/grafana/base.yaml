@@ -53,7 +53,7 @@ spec:
           - name: "GF_SECURITY_ADMIN_USER"
             value: "-"
           - name: "GF_INSTALL_PLUGINS"
-            value: "https://hopu.eu/wp-content/grafana/crate-datasource-master.zip;crate-datasource,https://hopu.eu/wp-content/grafana/smart-spot-worldmap-panel-v0.4.1.zip;smart-spot-worldmap-panel,https://hopu.eu/wp-content/grafana/noise-multibar-graph-panel-v0.4.0.zip;hopu-noise-multibar-graph-panel,https://hopu.eu/wp-content/grafana/hopu-noise-platform-1.1.0.zip;hopu-noise-platform"
+            value: "https://hopu.eu/wp-content/grafana/crate-datasource-master.zip;crate-datasource,https://hopu.eu/wp-content/grafana/smart-spot-worldmap-panel-v0.4.1.zip;smart-spot-worldmap-panel,https://hopu.eu/wp-content/grafana/noise-multibar-graph-panel-v0.4.0.zip;hopu-noise-multibar-graph-panel,https://hopu.eu/wp-content/grafana/HOPU-carpetplot-panel-v0.3.3.zip;carpetplot-panel,https://hopu.eu/wp-content/grafana/hopu-header-panel-1.0.0.zip;hopu-header-panel"
           volumeMounts:
             - mountPath: /var/lib/grafana
               name: grafana-volume            
