@@ -53,7 +53,7 @@ spec:
           - name: "GF_SECURITY_ADMIN_USER"
             value: "-"
           volumeMounts:
-            - mountPath: /
+            - mountPath: /var/lib/grafana
               name: grafana-volume            
           ports:
           - containerPort: 3000
